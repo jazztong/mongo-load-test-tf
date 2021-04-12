@@ -79,7 +79,7 @@ Each time run the db will create test data, to re-run require to delete db `ycsb
 | [INSERT], 95thPercentileLatency(us) | 22,239               | 36,223      | 25,423                   |
 | [INSERT], 99thPercentileLatency(us) | 60,927               | 83,583      | 66,559                   |
 
-### Mongo-EC2 (1000 IO1)
+### Mongo-EC2, M5.Large, 1000IO1 EBS
 
 ```
 [OVERALL], RunTime(ms), 44214
@@ -108,7 +108,7 @@ Each time run the db will create test data, to re-run require to delete db `ycsb
 [INSERT], Return=OK, 500000
 ```
 
-### Fargate EFS 150 MBPS
+### Fargate EFS
 
 ```
 [OVERALL], RunTime(ms), 72497
@@ -137,7 +137,7 @@ Each time run the db will create test data, to re-run require to delete db `ycsb
 [INSERT], Return=OK, 500000
 ```
 
-### ECS
+### ECS, M5.Large, 1000IO1 EBS
 
 ```
 [OVERALL], RunTime(ms), 49226
