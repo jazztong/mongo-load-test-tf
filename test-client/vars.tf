@@ -7,7 +7,7 @@ variable "volume_size" {
 variable "instance_type" {
   description = "Instance type"
   type        = string
-  default     = "t3.micro"
+  default     = "m5.large"
 }
 
 variable "ingress_cidr_blocks" {

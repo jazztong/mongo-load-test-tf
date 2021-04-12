@@ -1,0 +1,158 @@
+{
+  "widgets": [
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 0,
+      "type": "metric",
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/ECS",
+            "CPUUtilization",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "region": "${REGION}",
+        "title": "Service CPUUtilization"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 6,
+      "type": "metric",
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/ECS",
+            "MemoryUtilization",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "region": "${REGION}",
+        "title": "Service MemoryUtilization"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 12,
+      "type": "metric",
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "ECS/ContainerInsights",
+            "StorageWriteBytes",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ]
+        ],
+        "region": "${REGION}",
+        "title": "Service StorageWriteBytes"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 6,
+      "x": 6,
+      "type": "metric",
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "AWS/EFS",
+            "StorageBytes",
+            "StorageClass",
+            "Total",
+            "FileSystemId",
+            "${FILE_SYSTEM_ID}"
+          ]
+        ],
+        "region": "${REGION}",
+        "title": "EFS StorageBytes"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 6,
+      "x": 0,
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          [
+            "ECS/ContainerInsights",
+            "NetworkRxBytes",
+            "ServiceName",
+            "${SERVICE_NAME}",
+            "ClusterName",
+            "${CLUSTER_NAME}"
+          ],
+          [".", "NetworkTxBytes", ".", ".", ".", "."]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum",
+        "title": "Service NetworkRxBytes, NetworkTxBytes"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 6,
+      "x": 12,
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          ["AWS/EFS", "PercentIOLimit", "FileSystemId", "${FILE_SYSTEM_ID}"]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum",
+        "title": "EFS PercentIOLimit"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 18,
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          ["AWS/EFS", "DataWriteIOBytes", "FileSystemId", "${FILE_SYSTEM_ID}"]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "title": "EFS DataWriteIOBytes",
+        "period": 300,
+        "stat": "Sum"
+      }
+    }
+  ]
+}

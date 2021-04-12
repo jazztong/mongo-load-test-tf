@@ -5,17 +5,14 @@ resource "aws_ecs_task_definition" "this" {
   requires_compatibilities = ["EC2"]
   task_role_arn            = aws_iam_role.task.arn
   execution_role_arn       = aws_iam_role.task.arn
-  network_mode             = "bridge"
+  network_mode             = "awsvpc"
 
   container_definitions = jsonencode(
     [{
       "name" : var.app_id
       "image" : "mongo:4.4",
       "portMappings" : [
-        {
-          "HostPort" : 27017,
-          "containerPort" : 27017,
-        }
+        { containerPort = 27017 }
       ],
       "environment" : [
         {

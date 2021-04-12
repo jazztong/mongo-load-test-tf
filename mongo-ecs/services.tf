@@ -7,9 +7,17 @@ resource "aws_ecs_service" "this" {
 
   desired_count = 1
 
-  service_registries {
-    registry_arn   = aws_service_discovery_service.this.arn
-    container_port = 27017
-    container_name = var.app_id
+  network_configuration {
+    subnets          = data.aws_subnet_ids.this.ids
+    security_groups  = [aws_security_group.this.id]
+    assign_public_ip = false
   }
+
+  service_registries {
+    registry_arn = aws_service_discovery_service.this.arn
+  }
+
+  # Service only run one instance at a time
+  deployment_maximum_percent         = 100
+  deployment_minimum_healthy_percent = 0
 }

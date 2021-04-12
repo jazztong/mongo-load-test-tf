@@ -1,0 +1,94 @@
+{
+  "widgets": [
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 0,
+      "type": "metric",
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [["AWS/EC2", "CPUUtilization", "InstanceId", "${EC2_ID}"]],
+        "region": "${REGION}"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 6,
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          ["AWS/EC2", "EBSWriteOps", "InstanceId", "${EC2_ID}"],
+          [".", "EBSReadOps", ".", "."]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum"
+      }
+    },
+    {
+      "height": 6,
+      "width": 6,
+      "y": 0,
+      "x": 12,
+      "type": "metric",
+      "properties": {
+        "metrics": [
+          ["AWS/EC2", "NetworkPacketsIn", "InstanceId", "${EC2_ID}"],
+          [".", "NetworkPacketsOut", ".", "."]
+        ],
+        "view": "timeSeries",
+        "stacked": false,
+        "region": "${REGION}",
+        "period": 300,
+        "stat": "Sum"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 18,
+      "y": 0,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          ["CWAgent", "mem_available_percent", "host", "${EC2_HOST}"]
+        ],
+        "region": "${REGION}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 6,
+      "width": 6,
+      "height": 6,
+      "properties": {
+        "view": "timeSeries",
+        "stacked": false,
+        "metrics": [
+          [
+            "CWAgent",
+            "disk_used_percent",
+            "path",
+            "/",
+            "host",
+            "${EC2_HOST}",
+            "device",
+            "nvme0n1p1",
+            "fstype",
+            "xfs"
+          ]
+        ],
+        "region": "${REGION}"
+      }
+    }
+  ]
+}

@@ -4,25 +4,39 @@ Build mongo testing framework with TF and ycsb
 
 ## Run test
 
+### Use SSM login
+
+If you use SSM login you need to perform sudo su to go root path as below:-
+
+```
+sudo su
+```
+
+### Load test for mongo-ec2
+
 Run the following command when in test-client to start load test on mongo-ec2
 
 ```
-cd ycsb-0.17.0
+cd /ycsb-0.17.0
 ./bin/ycsb load mongodb -s -P workloads/workloada -p recordcount=500000 -threads 100 -p mongodb.url="mongodb://root:mypassword@mongo-ec2.loadtest.internel:27017/admin"
 ```
+
+### Load test for mongo-fargate
 
 Run the following command when in test-client to start load test on mongo-fargate
 
 ```
-cd ycsb-0.17.0
+cd /ycsb-0.17.0
 ./bin/ycsb load mongodb -s -P workloads/workloada -p recordcount=500000 -threads 100 -p mongodb.url="mongodb://root:mypassword@mongo-fargate.fargate.load:27017/admin"
 ```
+
+### Load test for mongo-ecs
 
 Run the following command when in test-client to start load test on mongo-ecs
 
 ```
-cd ycsb-0.17.0
-./bin/ycsb load mongodb -s -P workloads/workloada -p recordcount=500000 -threads 100 -p mongodb.url="mongodb://root:mypassword@172.31.13.7:27017/admin"
+cd /ycsb-0.17.0
+./bin/ycsb load mongodb -s -P workloads/workloada -p recordcount=500000 -threads 100 -p mongodb.url="mongodb://root:mypassword@mongo-ecs.ecs.load:27017/admin"
 ```
 
 ## Re-run

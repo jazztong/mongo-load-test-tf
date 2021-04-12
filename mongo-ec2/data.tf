@@ -14,6 +14,8 @@ data "aws_ami" "amzlinux2" {
   owners = ["amazon"]
 }
 
+data "aws_region" "this" {}
+
 data "template_cloudinit_config" "userdata" {
   part {
     filename     = "init.sh"

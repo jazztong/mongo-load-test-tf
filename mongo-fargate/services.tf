@@ -16,4 +16,7 @@ resource "aws_ecs_service" "this" {
   service_registries {
     registry_arn = aws_service_discovery_service.this.arn
   }
+  # Service only run one instance at a time
+  deployment_maximum_percent         = 100
+  deployment_minimum_healthy_percent = 0
 }

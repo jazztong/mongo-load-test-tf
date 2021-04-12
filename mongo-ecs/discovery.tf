@@ -5,9 +5,8 @@ resource "aws_service_discovery_service" "this" {
     namespace_id = aws_service_discovery_private_dns_namespace.this.id
 
     dns_records {
-      ttl = 86400
-      // Support for host and bridge mode task
-      type = "SRV"
+      ttl  = 86400
+      type = "A"
     }
 
     routing_policy = "MULTIVALUE"

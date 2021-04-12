@@ -6,6 +6,8 @@ data "aws_subnet_ids" "this" {
   vpc_id = data.aws_vpc.this.id
 }
 
+data "aws_region" "this" {}
+
 data "template_cloudinit_config" "userdata" {
   part {
     filename     = "init.sh"
@@ -28,4 +30,14 @@ data "aws_ami" "amzlinux2" {
   }
 
   owners = ["amazon"]
+}
+
+
+data "aws_ebs_volume" "this" {
+  most_recent = true
+
+  filter {
+    name   = "attachment.instance-id"
+    values = [aws_instance.this.id]
+  }
 }

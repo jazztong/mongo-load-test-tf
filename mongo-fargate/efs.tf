@@ -3,6 +3,7 @@ resource "aws_efs_file_system" "this" {
     Name = "${var.app_id}-efs"
   }
   encrypted = true
+  # Turn off provisioned IOPS
   # performance_mode                = "maxIO"
   # throughput_mode                 = "provisioned"
   # provisioned_throughput_in_mibps = var.provisioned_throughput_in_mibps

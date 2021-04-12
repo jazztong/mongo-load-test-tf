@@ -1,5 +1,5 @@
 resource "aws_instance" "this" {
-  ami                    = "ami-0cbc6aae997c6538a"
+  ami                    = data.aws_ami.amzlinux2.id
   iam_instance_profile   = aws_iam_instance_profile.this.name
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
