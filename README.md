@@ -2,11 +2,35 @@
 
 Build mongo testing framework with TF and ycsb
 
+## Preparation
+
+1. Configure AWS Credential
+2. Install terraform (0.14.9+)
+3. Visual Studio Code (Prefer)
+
+## Setup
+
+After checkout the source, in the root directory run `terraform init` command.
+
+## Plan
+
+After init successful run plan with `terraform plan`.
+
+## Deploy environment
+
+Run `terraform apply --auto-approve` to provision all component
+
+## Clean up
+
+Run `terraform destroy --auto-approve` to clean up environment
+
 ## Run test
+
+Use AWS SSM to connect to test-client.
 
 ### Use SSM login
 
-If you use SSM login you need to perform sudo su to go root path as below:-
+Under SSM root path, change to root to get all the permission by:-
 
 ```
 sudo su
